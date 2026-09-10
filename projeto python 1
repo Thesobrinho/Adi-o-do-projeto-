@@ -1,0 +1,142 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOS3tT/VzmBNEzMBdEr/4rb"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "vJB9QDO563VP"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "## matéria: MATEMÁTICA\n",
+        "\n",
+        "alunos = {\n",
+        "    'Guilherme': [8.5, 5.0, 7.0, 10],\n",
+        "    'Maria': [9.0, 8.5, 9.0, 9.8],\n",
+        "    'João': [7.4, 7.2, 6.2, 4.4],\n",
+        "    'André': [8.0, 9.5, 6.2, 8.0],      #Aqui recebi a lista\n",
+        "    'Carla': [4.6, 3.2, 7.2, 2.6],\n",
+        "    'Bruno': [6.3, 4.9, 2.5, 6.1],\n",
+        "    'Fernanda': [2.3, 5.5, 2.6, 2.7],\n",
+        "    'Lucas': [5.4, 8.6, 3.0, 3.8],\n",
+        "    'Patrícia': [7.0, 9.6, 6.6, 5.2],\n",
+        "    'Rafael': [9.8, 2.4, 8.9, 4.3]\n",
+        "}\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "-mPeoM2bZGb8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def media(notas):\n",
+        "    return round(sum(notas)/len(notas), 2) #Aqui optei por fazer a função dos valores\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "_T356LBsLwDl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def media_alunos(alunos):\n",
+        "  resultado = {}\n",
+        "  for nome, notas in alunos.items():\n",
+        "    m = media(notas)\n",
+        "    status = \"Aprovado\" if m >= 6 else \"Reprovado\" #status aprovado se m for maior que 6, se não, reprovou\n",
+        "    resultado [nome] = {'media' :m, 'status': status}  #Aqui pedi para que na lista alunos, foce atribuida as chaves nos resultados e valores nas chaves\n",
+        "    media_geral = round(sum(x['media'] for x in resultado.values()) / len(resultado), 2) #some cada item x da lista de valores de resultado e divida pela quantidade de items do resultado para achar a média\n",
+        "  return (resultado, media_geral)"
+      ],
+      "metadata": {
+        "id": "i458Y9EhMbPm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def exibicao(resultados, media_geral):\n",
+        "    for aluno, dados in resultados.items():\n",
+        "        print(f'{aluno}: Média = {dados['media']} - status: {dados['status']}.')\n",
+        "    print(f'Média geral da turma: {media_geral}') #exibir\n"
+      ],
+      "metadata": {
+        "id": "Kn1PlzWTOKWM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "medias, geral = media_alunos(alunos)\n"
+      ],
+      "metadata": {
+        "id": "z6-WHkKMNHnF"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "exibicao(medias, geral)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GQA3mueRNp2V",
+        "outputId": "2bbf481c-1477-484e-ade5-427ceb8995ce"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Guilherme: Média = 7.62 - status: Aprovado.\n",
+            "Maria: Média = 9.07 - status: Aprovado.\n",
+            "João: Média = 6.3 - status: Aprovado.\n",
+            "André: Média = 7.92 - status: Aprovado.\n",
+            "Carla: Média = 4.4 - status: Reprovado.\n",
+            "Bruno: Média = 4.95 - status: Reprovado.\n",
+            "Fernanda: Média = 3.27 - status: Reprovado.\n",
+            "Lucas: Média = 5.2 - status: Reprovado.\n",
+            "Patrícia: Média = 7.1 - status: Aprovado.\n",
+            "Rafael: Média = 6.35 - status: Aprovado.\n",
+            "Média geral da turma: 6.22\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
